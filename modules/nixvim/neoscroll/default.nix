@@ -1,0 +1,3 @@
+{
+  plugins.neoscroll.enable = false;
+}
