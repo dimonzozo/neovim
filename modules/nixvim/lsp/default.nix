@@ -12,13 +12,7 @@
       servers = {
         gopls.enable = true;
         eslint.enable = false;
-        nil_ls = {
-          enable = true;
-          settings = {
-            formatting.command = [ "nix-fmt" ];
-            nix.flake.autoArchive = true;
-          };
-        };
+        nixd.enable = true;
         # rust_analyzer = {
         #   enable = true;
         #   installCargo = true;
