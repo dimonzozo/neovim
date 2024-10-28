@@ -12,17 +12,15 @@
   };
 
   extraPlugins = [
-    (
-       pkgs.vimUtils.buildVimPlugin {
-        name = "harpoon";
-        src = pkgs.fetchFromGitHub {
-          owner = "ThePrimeagen";
-          repo = "harpoon";
-          rev = "0378a6c428a0bed6a2781d459d7943843f374bce";
-          hash = "sha256-FZQH38E02HuRPIPAog/nWM55FuBxKp8AyrEldFkoLYk=";
-        };
-      }
-    )
+    (pkgs.vimUtils.buildVimPlugin {
+      name = "harpoon";
+      src = pkgs.fetchFromGitHub {
+        owner = "ThePrimeagen";
+        repo = "harpoon";
+        rev = "0378a6c428a0bed6a2781d459d7943843f374bce";
+        hash = "sha256-FZQH38E02HuRPIPAog/nWM55FuBxKp8AyrEldFkoLYk=";
+      };
+    })
   ];
 
   extraConfigLuaPre = ''

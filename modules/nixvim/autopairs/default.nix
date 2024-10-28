@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       check_ts = true;
-      disable_filetype = ["TelescopePrompt"];
+      disable_filetype = [ "TelescopePrompt" ];
     };
   };
 }

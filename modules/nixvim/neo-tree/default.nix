@@ -1,19 +1,25 @@
-{ lib, config, helpers, ... }:
+{
+  lib,
+  config,
+  helpers,
+  ...
+}:
 {
   plugins.neo-tree = {
     enable = true;
-    
+
     extraOptions = {
       commands = {
-        "system_open" = helpers.mkRaw # lua
-        ''
-          function(state)
-            local node = state.tree:get_node()
-            local path = node:get_id()
-            -- macOs: open file in default application in the background.
-            vim.fn.jobstart({ "open", path }, { detach = true })
-          end
-        '';
+        "system_open" =
+          helpers.mkRaw # lua
+            ''
+              function(state)
+                local node = state.tree:get_node()
+                local path = node:get_id()
+                -- macOs: open file in default application in the background.
+                vim.fn.jobstart({ "open", path }, { detach = true })
+              end
+            '';
       };
     };
 

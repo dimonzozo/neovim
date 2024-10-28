@@ -1,5 +1,5 @@
 {
-  helpers, 
+  helpers,
   ...
 }:
 {
@@ -12,7 +12,18 @@
       servers = {
         gopls.enable = true;
         eslint.enable = false;
-        nixd.enable = true;
+        nixd = {
+          enable = true;
+
+          settings = {
+            options = {
+              nixpkgs.expr = "import <nixpkgs> { }";
+              nixos.expr = ''(builtins.head (builtins.attrValues (builtins.getFlake ("git+file://" + toString ./.)).nixosConfigurations)).options'';
+              home_manager.expr = ''(builtins.head (builtins.attrValues (builtins.getFlake ("git+file://" + toString ./.)).homeConfigurations)).options'';
+              nix_darwin.expr = ''(builtins.head (builtins.attrValues (builtins.getFlake ("git+file://" + toString ./.)).darwinConfigurations)).options'';
+            };
+          };
+        };
         # rust_analyzer = {
         #   enable = true;
         #   installCargo = true;
@@ -83,7 +94,7 @@
       mode = [ "n" ];
       action.__raw = ''
         function()
-          print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
         end
       '';
       options = {

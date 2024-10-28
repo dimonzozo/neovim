@@ -5,9 +5,9 @@
       exclude = {
         buftypes = [
           "terminal"
-            "quickfix"
-            "nofile"
-            "prompt"
+          "quickfix"
+          "nofile"
+          "prompt"
         ];
         filetypes = [
           "alpha"

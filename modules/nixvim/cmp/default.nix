@@ -13,15 +13,15 @@
           function(args)
           require('luasnip').lsp_expand(args.body)
           end
-          '';
+        '';
         sources = [
-        { name = "nvim_lsp"; }
-        { name = "nvim_lsp_document_symbol"; }
-        { name = "nvim_lsp_signature_help"; }
-        { name = "luasnip"; }
-        { name = "path"; }
-        { name = "buffer"; }
-        { name = "emoji"; }
+          { name = "nvim_lsp"; }
+          { name = "nvim_lsp_document_symbol"; }
+          { name = "nvim_lsp_signature_help"; }
+          { name = "luasnip"; }
+          { name = "path"; }
+          { name = "buffer"; }
+          { name = "emoji"; }
         ];
         window = {
           documentation.max_height = "math.floor(40 * (40 / vim.o.lines))";
@@ -34,30 +34,30 @@
         formatting = {
           fields = [
             "kind"
-              "abbr"
-              "menu"
+            "abbr"
+            "menu"
           ];
         };
         mapping = {
           "<CR>" = "cmp.mapping.confirm({ select = true })";
           "<Tab>" = ''
-            cmp.mapping(function(fallback)
-              local function has_words_before()
-	              unpack = unpack or table.unpack
-	              local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-	              return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-              end
-              if cmp.visible() then
-                cmp.select_next_item()
-              elseif require("luasnip").expand_or_locally_jumpable() then
-                require("luasnip").expand_or_jump()
-              elseif has_words_before() then
-                cmp.complete()
-              else
-                fallback()
-              end
-            end, { "i", "s" })
-            '';
+                        cmp.mapping(function(fallback)
+                          local function has_words_before()
+            	              unpack = unpack or table.unpack
+            	              local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+            	              return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+                          end
+                          if cmp.visible() then
+                            cmp.select_next_item()
+                          elseif require("luasnip").expand_or_locally_jumpable() then
+                            require("luasnip").expand_or_jump()
+                          elseif has_words_before() then
+                            cmp.complete()
+                          else
+                            fallback()
+                          end
+                        end, { "i", "s" })
+          '';
           "<S-Tab>" = ''
             cmp.mapping(function(fallback)
               if cmp.visible() then
@@ -68,7 +68,7 @@
                 fallback()
               end
             end, { "i", "s" })
-            '';
+          '';
           "<C-Space>" = "cmp.mapping.complete()";
           "<C-e>" = "cmp.mapping.abort()";
           "<Up>" = "cmp.mapping.select_prev_item()";
