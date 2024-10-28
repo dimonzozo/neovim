@@ -1,6 +1,6 @@
 {
   plugins.dashboard = {
-    enable = true;
+    enable = false;
 
     settings = {
       change_to_vcs_root = true;
