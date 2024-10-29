@@ -12,9 +12,15 @@
       servers = {
         gopls.enable = true;
         eslint.enable = false;
-        nixd = {
+        nil_ls = {
           enable = true;
-
+          settings = {
+            formatting.command = [ "nixfmt" ];
+            nix.flake.autoArchive = true;
+          };
+        };
+        nixd = {
+          enable = false;
           settings = {
             options = {
               nixpkgs.expr = "import <nixpkgs> { }";
