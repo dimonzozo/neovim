@@ -1,6 +1,6 @@
 {
   plugins.nvim-autopairs = {
-    enable = true;
+    enable = false;
     settings = {
       check_ts = true;
       disable_filetype = [ "TelescopePrompt" ];

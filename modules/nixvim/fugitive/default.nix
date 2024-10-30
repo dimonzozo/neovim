@@ -1,3 +1,3 @@
 {
-  plugins.fugitive.enable = true;
+  plugins.fugitive.enable = false;
 }

@@ -6,7 +6,7 @@
   luaLoader.enable = true;
 
   extraPlugins = with pkgs.vimPlugins; [
-    vim-snippets
+    fugitive
     vim-unimpaired
   ];
 
@@ -84,19 +84,10 @@
     {
       key = "<TAB>";
       mode = [ "n" ];
-      action = "<cmd>bnext<CR>";
+      action = "<cmd>b#<CR>";
       options = {
         silent = true;
-        desc = "Next buffer";
-      };
-    }
-    {
-      key = "<S-TAB>";
-      mode = [ "n" ];
-      action = "<cmd>bprevious<CR>";
-      options = {
-        silent = true;
-        desc = "Previous buffer";
+        desc = "Other buffer";
       };
     }
     # Quality of life changes

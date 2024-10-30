@@ -1,6 +1,6 @@
 {
   plugins.barbar = {
-    enable = true;
+    enable = false;
     settings = {
       exclude_name = [ "alpha" ];
       sidebar_filetypes = {
@@ -23,100 +23,100 @@
     };
   };
   # Stuff to restore buffers after session restore [https://github.com/romgrk/barbar.nvim?tab=readme-ov-file#custom]
-  extraConfigLua = ''
-    vim.opt.sessionoptions:append "globals"
-    vim.api.nvim_create_user_command(
-        "Mksession",
-        function(attr)
-            vim.api.nvim_exec_autocmds("User", {pattern = "SessionSavePre"})
-            -- Neovim 0.8+
-            vim.cmd.mksession {bang = attr.bang, args = attr.fargs}
-        end,
-        {bang = true, complete = "file", desc = "Save barbar with :mksession", nargs = "?"}
-    )
-  '';
-  keymaps = [
-    {
-      key = "]b";
-      mode = [ "n" ];
-      action = "<cmd>BufferNext<cr>";
-      options = {
-        silent = true;
-        desc = "Next Buffer";
-      };
-    }
-    {
-      key = "[b";
-      mode = [ "n" ];
-      action = "<cmd>BufferPrevious<cr>";
-      options = {
-        silent = true;
-        desc = "Previous Buffer";
-      };
-    }
-    # Pin/unpin buffer
-    {
-      key = "<leader>bp";
-      mode = [ "n" ];
-      action = "<cmd>BufferPin<cr>";
-      options = {
-        silent = true;
-        desc = "Pin Buffer";
-      };
-    }
-    {
-      key = "<leader>br";
-      mode = [ "n" ];
-      action = "<cmd>BufferRestore<cr>";
-      options = {
-        silent = true;
-        desc = "Restore Buffer";
-      };
-    }
-    {
-      key = "<leader>bc";
-      mode = [ "n" ];
-      action = "<cmd>BufferCloseAllButCurrent<cr>";
-      options = {
-        silent = true;
-        desc = "Close all Buffers except Current";
-      };
-    }
-    {
-      key = "<leader>bC";
-      mode = [ "n" ];
-      action = "<cmd>BufferWipeout<cr>";
-      options = {
-        silent = true;
-        desc = "Close all Buffers";
-      };
-    }
-    {
-      key = "<leader>bd";
-      mode = [ "n" ];
-      action = "<cmd>BufferPickDelete<cr>";
-      options = {
-        silent = true;
-        desc = "Pick Buffer to Close";
-      };
-    }
-    {
-      key = "<leader>q";
-      mode = [ "n" ];
-      action = "<cmd>BufferClose<cr>";
-      options = {
-        silent = true;
-        desc = "Close Buffer";
-      };
-    }
-    {
-      key = "<leader>x";
-      mode = [ "n" ];
-      action = "<cmd>BufferClose<cr>";
-      options = {
-        silent = true;
-        desc = "Close Buffer";
-      };
-    }
-  ];
+  # extraConfigLua = ''
+  #   vim.opt.sessionoptions:append "globals"
+  #   vim.api.nvim_create_user_command(
+  #       "Mksession",
+  #       function(attr)
+  #           vim.api.nvim_exec_autocmds("User", {pattern = "SessionSavePre"})
+  #           -- Neovim 0.8+
+  #           vim.cmd.mksession {bang = attr.bang, args = attr.fargs}
+  #       end,
+  #       {bang = true, complete = "file", desc = "Save barbar with :mksession", nargs = "?"}
+  #   )
+  # '';
+  # keymaps = [
+  #   {
+  #     key = "]b";
+  #     mode = [ "n" ];
+  #     action = "<cmd>BufferNext<cr>";
+  #     options = {
+  #       silent = true;
+  #       desc = "Next Buffer";
+  #     };
+  #   }
+  #   {
+  #     key = "[b";
+  #     mode = [ "n" ];
+  #     action = "<cmd>BufferPrevious<cr>";
+  #     options = {
+  #       silent = true;
+  #       desc = "Previous Buffer";
+  #     };
+  #   }
+  #   # Pin/unpin buffer
+  #   {
+  #     key = "<leader>bp";
+  #     mode = [ "n" ];
+  #     action = "<cmd>BufferPin<cr>";
+  #     options = {
+  #       silent = true;
+  #       desc = "Pin Buffer";
+  #     };
+  #   }
+  #   {
+  #     key = "<leader>br";
+  #     mode = [ "n" ];
+  #     action = "<cmd>BufferRestore<cr>";
+  #     options = {
+  #       silent = true;
+  #       desc = "Restore Buffer";
+  #     };
+  #   }
+  #   {
+  #     key = "<leader>bc";
+  #     mode = [ "n" ];
+  #     action = "<cmd>BufferCloseAllButCurrent<cr>";
+  #     options = {
+  #       silent = true;
+  #       desc = "Close all Buffers except Current";
+  #     };
+  #   }
+  #   {
+  #     key = "<leader>bC";
+  #     mode = [ "n" ];
+  #     action = "<cmd>BufferWipeout<cr>";
+  #     options = {
+  #       silent = true;
+  #       desc = "Close all Buffers";
+  #     };
+  #   }
+  #   {
+  #     key = "<leader>bd";
+  #     mode = [ "n" ];
+  #     action = "<cmd>BufferPickDelete<cr>";
+  #     options = {
+  #       silent = true;
+  #       desc = "Pick Buffer to Close";
+  #     };
+  #   }
+  #   {
+  #     key = "<leader>q";
+  #     mode = [ "n" ];
+  #     action = "<cmd>BufferClose<cr>";
+  #     options = {
+  #       silent = true;
+  #       desc = "Close Buffer";
+  #     };
+  #   }
+  #   {
+  #     key = "<leader>x";
+  #     mode = [ "n" ];
+  #     action = "<cmd>BufferClose<cr>";
+  #     options = {
+  #       silent = true;
+  #       desc = "Close Buffer";
+  #     };
+  #   }
+  # ];
 }

@@ -22,14 +22,13 @@
             '';
       };
     };
-
     enableDiagnostics = true;
     enableGitStatus = true;
     enableModifiedMarkers = true;
     enableRefreshOnWrite = true;
     autoCleanAfterSessionRestore = true;
     sourceSelector = {
-      # winbar = true;
+      statusline = true;
       contentLayout = "focus";
       sources = [
         {
@@ -63,14 +62,14 @@
       };
       modified.symbol = "";
       gitStatus.symbols = {
-        added = "";
-        deleted = "";
-        modified = "";
-        renamed = "➜";
-        untracked = "★";
+        added = "✚";
+        modified = "";
+        deleted = "✖";
+        renamed = "󰁕";
+        untracked = "";
         ignored = "◌";
-        unstaged = "✗";
-        staged = "✓";
+        unstaged = "󰄱";
+        staged = "";
         conflict = "";
       };
     };
@@ -113,6 +112,43 @@
     buffers = {
       bindToCwd = true;
       followCurrentFile.enabled = true;
+      window = {
+        mappings = {
+          "l" = {
+            command = "open";
+            nowait = true;
+          };
+          "o" = {
+            command = "open";
+            nowait = true;
+            noremap = true;
+          };
+          "S" = {
+            command = "system_open";
+            nowait = true;
+          };
+        };
+      };
+    };
+    gitStatus = {
+      window = {
+        mappings = {
+          "l" = {
+            command = "open";
+            nowait = true;
+          };
+          "o" = {
+            command = "open";
+            nowait = true;
+            noremap = true;
+          };
+          "S" = {
+            command = "system_open";
+            nowait = true;
+          };
+
+        };
+      };
     };
   };
   keymaps = lib.mkIf config.plugins.neo-tree.enable [
