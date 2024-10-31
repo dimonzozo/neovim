@@ -96,7 +96,10 @@
         };
       };
       bindToCwd = true;
-      followCurrentFile.enabled = true;
+      followCurrentFile = {
+        enabled = true;
+        leaveDirsOpen = true;
+      };
       useLibuvFileWatcher = true;
       filteredItems = {
         visible = false;
