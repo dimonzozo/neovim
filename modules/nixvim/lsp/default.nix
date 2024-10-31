@@ -12,8 +12,10 @@
       servers = {
         gopls.enable = true;
         eslint.enable = false;
+        pyright.enable = true;
+        # pylsp.enable = true;
         ruff_lsp.enable = true;
-        pylyzer.enable = true;
+        # pylyzer.enable = true;
         nil_ls = {
           enable = true;
           settings = {
