@@ -100,8 +100,8 @@
       icon = {
         folderClosed = "";
         folderOpen = "";
-        folderEmpty = "";
-        default = "";
+        folderEmpty = "";
+        default = "";
       };
       modified.symbol = "";
       gitStatus.symbols = {
